@@ -1,6 +1,6 @@
 local Nofitication = {}
 
-local GUI = game.Players.LocalPlayer.PlayerGui:FindFirstChild("STX_Nofitication") or game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("STX_Nofitication")
+local GUI = game.Players.LocalPlayer.PlayerGui:FindFirstChild("STX_Nofitication") or game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("STX_Nofitication")
 function Nofitication:Notify(nofdebug, middledebug, all)
     local SelectedType = string.lower(tostring(middledebug.Type))
     local ambientShadow = Instance.new("ImageLabel")
