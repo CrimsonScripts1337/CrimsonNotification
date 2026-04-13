@@ -12,11 +12,12 @@ if not GUI then
     STX_NofiticationUIListLayout.Name = "STX_NofiticationUIListLayout"
     STX_NofiticationUIListLayout.Parent = STX_Nofitication
     STX_NofiticationUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    GUI = STX_Nofitication
 else
     STX_NofiticationUIListLayout = GUI:FindFirstChild("STX_NofiticationUIListLayout")
 end
 
--- loop to keep updating alignment when _G changes
 task.spawn(function()
     while task.wait() do
         if STX_NofiticationUIListLayout then
