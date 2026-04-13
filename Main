@@ -114,8 +114,21 @@ function Nofitication:Notify(nofdebug, middledebug, all)
     elseif SelectedType == "option" then
         ambientShadow:TweenSize(UDim2.new(0, 240, 0, 110), "Out", "Linear", 0.2)
         Window.Size = UDim2.new(0, 230, 0, 100)
+        WindowTitle.Position = UDim2.new(0, 24, 0, 2)
+        local ImageButton = Instance.new("ImageButton")
         local Uncheck = Instance.new("ImageButton")
         local Check = Instance.new("ImageButton")
+        
+        ImageButton.Parent = Window
+        ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ImageButton.BackgroundTransparency = 1.000
+        ImageButton.BorderSizePixel = 0
+        ImageButton.Position = UDim2.new(0, 4, 0, 4)
+        ImageButton.Size = UDim2.new(0, 18, 0, 18)
+        ImageButton.ZIndex = 5
+        ImageButton.AutoButtonColor = false
+        ImageButton.Image = all.Image
+        ImageButton.ImageColor3 = all.ImageColor
         
         Uncheck.Name = "Uncheck"
         Uncheck.Parent = Window
@@ -126,7 +139,7 @@ function Nofitication:Notify(nofdebug, middledebug, all)
         Uncheck.Size = UDim2.new(0, 18, 0, 18)
         Uncheck.ZIndex = 5
         Uncheck.AutoButtonColor = false
-        Uncheck.Image = "http://www.roblox.com/asset/?id=6031094678"
+        Uncheck.Image = "rbxassetid://6031094678"
         Uncheck.ImageColor3 = Color3.fromRGB(255, 84, 84)
         
         Check.Name = "Check"
@@ -138,7 +151,7 @@ function Nofitication:Notify(nofdebug, middledebug, all)
         Check.Size = UDim2.new(0, 18, 0, 18)
         Check.ZIndex = 5
         Check.AutoButtonColor = false
-        Check.Image = "http://www.roblox.com/asset/?id=6031094667"
+        Check.Image = "rbxassetid://6031094667"
         Check.ImageColor3 = Color3.fromRGB(83, 230, 50)
 
         local function ORBHB_fake_script()
