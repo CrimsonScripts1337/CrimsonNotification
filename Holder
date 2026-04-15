@@ -1,8 +1,9 @@
 local GUI = game.Players.LocalPlayer.PlayerGui:FindFirstChild("STX_Nofitication") or game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("STX_Nofitication")
 local STX_NofiticationUIListLayout
+local STX_Nofitication
 
 if not GUI then
-    local STX_Nofitication = Instance.new("ScreenGui")
+    STX_Nofitication = Instance.new("ScreenGui")
     STX_Nofitication.Name = "STX_Nofitication"
     STX_Nofitication.Parent = game.Players.LocalPlayer.PlayerGui or game.Players.LocalPlayer:WaitForChild("PlayerGui")
     STX_Nofitication.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -20,6 +21,9 @@ end
 
 task.spawn(function()
     while task.wait() do
+        if STX_Nofitication then
+            STX_Nofitication.Enabled = _G.NotificationVisibility or true
+        end
         if STX_NofiticationUIListLayout then
             STX_NofiticationUIListLayout.HorizontalAlignment = _G.NotificationHorizontalAlignment or Enum.HorizontalAlignment.Right
             STX_NofiticationUIListLayout.VerticalAlignment = _G.NotificationVerticalAlignment or Enum.VerticalAlignment.Bottom
