@@ -21,8 +21,8 @@ end
 
 task.spawn(function()
     while task.wait() do
-        if STX_Nofitication then
-            STX_Nofitication.Enabled = _G.NotificationVisibility or true
+        if GUI then
+            GUI.Enabled = _G.NotificationVisibility ~= false
         end
         if STX_NofiticationUIListLayout then
             STX_NofiticationUIListLayout.HorizontalAlignment = _G.NotificationHorizontalAlignment or Enum.HorizontalAlignment.Right
