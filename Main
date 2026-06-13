@@ -1,7 +1,26 @@
-local GUI
+local function getOrCreateGUI()
+    local existing = gethui():FindFirstChild("STX_Notification")
+    if existing then return existing end
 
-repeat task.wait() until gethui():FindFirstChild("STX_Notification")
-GUI = gethui():FindFirstChild("STX_Notification")
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "STX_Notification"
+    ScreenGui.Parent = gethui()
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.ResetOnSpawn = false
+    ScreenGui.DisplayOrder = 999
+
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Name = "STX_NotificationUIListLayout"
+    UIListLayout.Parent = ScreenGui
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    UIListLayout.Padding = UDim.new(0, 4)
+
+    return ScreenGui
+end
+
+local GUI = getOrCreateGUI()
 
 local Notification = {}
 
