@@ -15,7 +15,7 @@ if not GUI then
     STX_NotificationUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
     STX_NotificationUIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
     STX_NotificationUIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
-    STX_NotificationUIListLayout.Padding = UDim2.new(0, 4, 0, 4)
+    STX_NotificationUIListLayout.Padding = UDim.new(0, 4)
 
     GUI = STX_Notification
 else
