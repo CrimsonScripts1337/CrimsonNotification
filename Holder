@@ -1,34 +1,35 @@
-local CoreGui = game:GetService("CoreGui")
-
-local GUI = CoreGui:FindFirstChild("STX_Nofitication")
-local STX_NofiticationUIListLayout
-local STX_Nofitication
+local GUI = gethui():FindFirstChild("STX_Notification")
+local STX_NotificationUIListLayout
 
 if not GUI then
-	STX_Nofitication = Instance.new("ScreenGui")
-	STX_Nofitication.Name = "STX_Nofitication"
-	STX_Nofitication.Parent = CoreGui
-	STX_Nofitication.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	STX_Nofitication.ResetOnSpawn = false
+    local STX_Notification = Instance.new("ScreenGui")
+    STX_Notification.Name = "STX_Notification"
+    STX_Notification.Parent = gethui()
+    STX_Notification.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    STX_Notification.ResetOnSpawn = false
+    STX_Notification.DisplayOrder = 999
 
-	STX_NofiticationUIListLayout = Instance.new("UIListLayout")
-	STX_NofiticationUIListLayout.Name = "STX_NofiticationUIListLayout"
-	STX_NofiticationUIListLayout.Parent = STX_Nofitication
-	STX_NofiticationUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    STX_NotificationUIListLayout = Instance.new("UIListLayout")
+    STX_NotificationUIListLayout.Name = "STX_NotificationUIListLayout"
+    STX_NotificationUIListLayout.Parent = STX_Notification
+    STX_NotificationUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    STX_NotificationUIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    STX_NotificationUIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    STX_NotificationUIListLayout.Padding = UDim2.new(0, 4, 0, 4)
 
-	GUI = STX_Nofitication
+    GUI = STX_Notification
 else
-	STX_NofiticationUIListLayout = GUI:FindFirstChild("STX_NofiticationUIListLayout")
+    STX_NotificationUIListLayout = GUI:FindFirstChild("STX_NotificationUIListLayout")
 end
 
 task.spawn(function()
-	while task.wait() do
-		if GUI then
-			GUI.Enabled = _G.NotificationVisibility ~= false
-		end
-		if STX_NofiticationUIListLayout then
-			STX_NofiticationUIListLayout.HorizontalAlignment = _G.NotificationHorizontalAlignment or Enum.HorizontalAlignment.Right
-			STX_NofiticationUIListLayout.VerticalAlignment = _G.NotificationVerticalAlignment or Enum.VerticalAlignment.Bottom
-		end
-	end
+    while task.wait() do
+        if GUI then
+            GUI.Enabled = _G.NotificationVisibility ~= false
+        end
+        if STX_NotificationUIListLayout then
+            STX_NotificationUIListLayout.HorizontalAlignment = _G.NotificationHorizontalAlignment or Enum.HorizontalAlignment.Right
+            STX_NotificationUIListLayout.VerticalAlignment = _G.NotificationVerticalAlignment or Enum.VerticalAlignment.Bottom
+        end
+    end
 end)
