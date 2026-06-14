@@ -22,6 +22,12 @@ end
 
 local GUI = getOrCreateGUI()
 
+task.spawn(function()
+    while task.wait() do
+        GUI.Enabled = _G.NotificationVisibility
+    end
+end)
+
 local Notification = {}
 
 function Notification:Notify(nofdebug, middledebug, all)
