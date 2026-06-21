@@ -17,14 +17,16 @@ local function getOrCreateGUI()
     UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
     UIListLayout.Padding = UDim.new(0, 4)
 
-    return ScreenGui
+    return ScreenGui, UIListLayout
 end
 
-local GUI = getOrCreateGUI()
+local GUI, Layout = getOrCreateGUI()
 
 task.spawn(function()
     while task.wait() do
         GUI.Enabled = _G.NotificationVisibility
+        Layout.HorizontalAlignment = _G.NotificationHorizontalAlignment
+        Layout.HorizontalAlignment = _G.NotificationVerticalAlignment
     end
 end)
 
