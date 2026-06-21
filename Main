@@ -1,3 +1,7 @@
+_G.NotificationVisibility = true
+_G.NotificationHorizontalAlignment = Enum.HorizontalAlignment.Right
+_G.NotificationVerticalAlignment = Enum.VerticalAlignment.Bottom
+
 local function getOrCreateGUI()
     local existing = gethui():FindFirstChild("STX_Notification")
     if existing then return existing end
