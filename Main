@@ -26,7 +26,7 @@ task.spawn(function()
     while task.wait() do
         GUI.Enabled = _G.NotificationVisibility
         Layout.HorizontalAlignment = _G.NotificationHorizontalAlignment
-        Layout.HorizontalAlignment = _G.NotificationVerticalAlignment
+        Layout.VerticalAlignment = _G.NotificationVerticalAlignment
     end
 end)
 
